@@ -14,6 +14,9 @@ app.use(express.static(__dirname + "/public"));
 app.use("/", indexRoutes);
 app.use("/users", usersRoutes);
 
+app.get("/", function(req, res){
+    res.redirect("/users");
+});
 app.get("*", function(req, res) {
     res.redirect("/");
 });
