@@ -16,7 +16,15 @@ app.get("/login", function(req, res){
     res.render("login");
 });
 
-app.listen(100, process.env.IP, function(){
-    console.log("Server has started.")
-    console.log(process.env.PORT)
+
+
+var port = 99;
+if (process.env.PORT) {
+	port = process.env.PORT;
+} else {
+	port = 99;
+}
+
+app.listen(port, process.env.IP, function(){
+    console.log("Server has started.");
 });
