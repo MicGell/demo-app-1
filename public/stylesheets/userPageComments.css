@@ -2,7 +2,6 @@
 .containerViewUser{
 	position: relative;
 	width: 466px;
-	height: 797px;
 	border-radius: 5px;
 	margin: 25px auto;
 	padding: 36px 17px 0 17px;
@@ -34,11 +33,17 @@
 }
 
 #shareIcon{
+	cursor: pointer;
 	position: absolute;
 	top: 10.1px;
 	right: 10.1px;
 	color: #FFA640;
 }
+#shareIcon:hover{
+	color: #ec942e;
+}
+
+
 
 .infomationOfUser{
 	padding: 20px 20px 19px 20px;
@@ -74,9 +79,14 @@
 	float: left;
 	padding: 18px;
 }
-.infomationOfUser_text i{
+
+#heartLike{
+	cursor: pointer;
 	color: #D3D3D3;
 	font-size: 12px;
+}
+#heartLike:hover{
+	color: red;
 }
 
 .infomationOfUser_text h3, .infomationOfUser_text h5{
@@ -143,6 +153,9 @@
 
 .contentComments{
 	margin-top: 35px;
+    position: relative;
+    overflow: hidden;
+    zoom: 1;
 }
 
 #hideComments{
@@ -250,7 +263,8 @@
 .line{
 	border: 2px solid #c6c6c7;
 	height: 0;
-	width: 100%;
-	margin: 5px 26px;
+	width: 90%;
+	margin: 10px 5%;
+	margin-bottom: 50px;
 	border-radius: 50%;
 }
