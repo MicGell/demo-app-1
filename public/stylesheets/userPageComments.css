@@ -331,11 +331,11 @@
 
 @media (max-width: 350px) {
 	.containerViewUser{
-		width: 100%;
+		width: 95%;
 	    padding: 36px 2.5% 0 2.5%;
 	}
 	.contentViewUser{
-		width: 95%;
+		width: 100%;
 	}
 	.comment_userImg{
 		margin-left: 1%;
