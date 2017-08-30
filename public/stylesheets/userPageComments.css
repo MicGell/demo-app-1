@@ -4,7 +4,7 @@
 	width: 466px;
 	height: 797px;
 	border-radius: 5px;
-	margin: 0 auto;
+	margin: 25px auto;
 	padding: 36px 17px 0 17px;
 	box-shadow: 0 0 4px 0 rgba(172,172,172,0.50);
 }
@@ -163,6 +163,7 @@
 
 .comment{
 	margin-bottom: 58px;
+	position: relative;
 }
 
 .comment_userImg{
@@ -233,4 +234,23 @@
 .comments::-webkit-scrollbar-thumb {
     border-radius: 100px;
     background: rgba(0, 44, 113, 0.2);
+}
+#addNewComment{
+	margin-left: 25px;
+	margin-top: 70px;
+	font-size: 18px;
+	color: #8298B9;
+	text-decoration: none;
+	display: block;
+}
+#addNewComment:hover{
+	color: #5e789e;
+}
+
+.line{
+	border: 2px solid #c6c6c7;
+	height: 0;
+	width: 100%;
+	margin: 5px 26px;
+	border-radius: 50%;
 }
