@@ -1,0 +1,94 @@
+.title{
+	text-align: center;
+    margin-bottom: 60px;
+    color: #002C71;
+}
+.containerViewAllUsers{
+	position: relative;
+	max-width: 466px;
+	height: 500px;
+	border-radius: 5px;
+	margin: 25px auto;
+	padding: 1px 0; 
+	box-shadow: 0 0 4px 0 rgba(172,172,172,0.50);
+	background-color: #002C71;
+}
+
+.informationOfUser{
+	cursor: pointer;
+    z-index: 1;
+    position: relative;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    width: 85%;
+    margin: 36px auto; 
+    padding: 10px 2.5%;
+}
+
+.informationOfUser:hover{
+	background-color: #e8ecf2;
+}    
+
+.infomationOfUser_img{
+	height: 70px;
+	width: 70px;
+	display: inline-block;
+	float: left;
+}
+
+.informationOfUser img{
+    border-radius: 49%;
+    height: 70px;
+    width: 70px;
+	background: no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.likesFollowsOfUser{
+	padding: 0 0 17px 21px;
+}
+
+.infomationOfUser_text{
+	display: inline-block;
+	color: #002C71;
+	letter-spacing: 0;
+	float: left;
+	padding: 18px;
+}
+
+.infomationOfUser_text h3, .infomationOfUser_text h5{
+	margin: 0;
+	padding: 0;
+} 
+
+.infomationOfUser_text h3{
+	font-size: 18px;
+	font-weight: 500;
+}
+.infomationOfUser_text h5{
+	font-size: 12px;
+	color: #8298B9;
+	font-weight: 400;
+}
+
+#shareIcon{
+	cursor: pointer;
+	position: absolute;
+	top: 10.1px;
+	right: 10.1px;
+	color: #FFA640;
+}
+#shareIcon:hover{
+	color: #ec942e;
+}
+
+@media (max-width: 385px) {
+	.infomationOfUser_img, .infomationOfUser_text{
+		display: block;
+		float: none;
+		margin: 0 auto;
+	}
+}

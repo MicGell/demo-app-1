@@ -1,95 +1,32 @@
 <% include ../partials/header %>
 
-<h1>Multi Users Page</h1>
+<h1 class="title">Browse users</h1>
 
-<div class="containerViewUser">
-	<div class="backgroundHeader"></div>
-	<div class="contentViewUser">
-		<div class="contentUserTop">
-			<i id="shareIcon" class="icon-export"></i>
-			<div class="infomationOfUser">
-				<div class="infomationOfUser_img">
-					<img src="/images/users/img_1.jpg" alt="avatar">
-				</div>
-				<div class="infomationOfUser_text">
-					<h3>Firstname Lastname <i id="heartLike" class="icon-heart-empty"></i></h3>
-					<h5>New York, USA</h5>
-				</div>
-				<div class="clear">&nbsp;</div>
-			</div>
-			<div class="likesFollowsOfUser">
-				<div class="likesFollowsOfUser_block_group">
-					<div class="likesFollowsOfUser_block">
-						<p class="likesFollowsOfUser_number">121</p>
-						<p class="likesFollowsOfUser_text">Likes</p>
-					</div>
-					<div class="likesFollowsOfUser_block">
-						<p class="likesFollowsOfUser_number">723</p>
-						<p class="likesFollowsOfUser_text">Following</p>
-					</div>
-					<div class="likesFollowsOfUser_block">
-						<p class="likesFollowsOfUser_number">4433</p>
-						<p class="likesFollowsOfUser_text">Followes</p>
-					</div>
-				</div>	
-				<button id="buttonFollow">FOLLOW</button>
-				<div class="clear">&nbsp;</div>
-			</div>
+<div class="containerViewAllUsers">
+	<div class="informationOfUser">
+		<i id="shareIcon" class="icon-export"></i>
+		<div class="infomationOfUser_img">
+			<img src="/images/users/img_1.jpg" alt="avatar">
 		</div>
-		<div class="contentComments">		
-			<a id="hideComments" href="">Hide comments (353)</a>
-
-			<div class="comments">
-				<div class="comment">
-					<div class="comment_userImg">
-						<img src="/images/users/img_1.jpg" alt="avatar">
-					</div>
-					<div class="comment_userName_date">
-						<h5>Firstname Lastname</h5>
-						<p>1d</p>
-						<div class="clear">&nbsp;</div>
-					</div>
-					<p class="comment_text">
-						Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis. 
-					</p>
-					<div class="clear">&nbsp;</div>
-				</div>
-
-				<div class="comment">
-					<div class="comment_userImg">
-						<img src="/images/users/img_1.jpg" alt="avatar">
-					</div>
-					<div class="comment_userName_date">
-						<h5>Firstname Lastname</h5>
-						<p>1d</p>
-						<div class="clear">&nbsp;</div>
-					</div>
-					<p class="comment_text">
-						Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis. 
-					</p>
-					<div class="clear">&nbsp;</div>
-				</div>
-
-				<div class="comment">
-					<div class="comment_userImg">
-						<img src="/images/users/img_1.jpg" alt="avatar">
-					</div>
-					<div class="comment_userName_date">
-						<h5>Firstname Lastname</h5>
-						<p>1d</p>
-						<div class="clear">&nbsp;</div>
-					</div>
-					<p class="comment_text">
-						Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis. 
-					</p>
-					<div class="clear">&nbsp;</div>
-				</div>
-			</div>
-
-			<a id="addNewComment" href="#">Add a comment</a>
-			<div class="line"></div>
+		<div class="infomationOfUser_text">
+			<h3>Firstname Lastname</h3>
+			<h5>New York, USA</h5>
 		</div>
+		<div class="clear">&nbsp;</div>
 	</div>
+
+	<div class="informationOfUser">
+		<i id="shareIcon" class="icon-export"></i>
+		<div class="infomationOfUser_img">
+			<img src="/images/users/img_1.jpg" alt="avatar">
+		</div>
+		<div class="infomationOfUser_text">
+			<h3>Firstname Lastname</h3>
+			<h5>New York, USA</h5>
+		</div>
+		<div class="clear">&nbsp;</div>
+	</div>
+
 </div>
 
 <% include ../partials/footer %>
