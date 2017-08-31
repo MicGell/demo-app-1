@@ -27,9 +27,7 @@ html, body{
 .navbarTop a{ 
 	text-decoration: none;
 } 
-.navbarTop a:link, .navbarTop a:visited, .navbarTop a:hover, .navbarTop a:active{
-	background-color: #ec942e;
-}
+.navbarTop a -webkit-tap-highlight-color: transparent;
 
 .navButtons > li{
 	float: right;
