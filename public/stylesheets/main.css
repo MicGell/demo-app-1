@@ -8,7 +8,9 @@ html, body{
 	font-family: 'Montserrat', sans-serif;
 }
 .navbarTop{
-	padding: 10px 0;
+	padding: 0;
+	margin: 0;
+	margin-bottom: 60px;
 	width: 100%;
     overflow:hidden;
     zoom:1;
@@ -30,7 +32,7 @@ html, body{
 	float: right;
 	list-style-type: none;
 	display: inline-block;
-	margin: 5px;
+	margin: 10px;
 }
 
 .clear {
@@ -38,11 +40,16 @@ html, body{
    clear: both;
    height: 0;
 }
-
+.signedInAs{
+	cursor: pointer;
+	color: #002C71;;
+}
+.signedInAs:hover{
+	color: #ec942e;
+}
 .buttonMenu{
 	cursor: pointer;
 	padding: 10px 15px;
-	margin: 5px 10px;
 	background-color: #002C71;
 	border: 0;
 	outline: 0;
