@@ -25,8 +25,11 @@ html, body{
 }
 
 .navbarTop a{ 
-	text-decoration: none; 
+	text-decoration: none;
 } 
+.navbarTop a:link, .navbarTop a:visited, .navbarTop a:hover, .navbarTop a:active{
+	background-color: #ec942e;
+}
 
 .navButtons > li{
 	float: right;
