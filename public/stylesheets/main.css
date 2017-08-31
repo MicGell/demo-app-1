@@ -27,7 +27,6 @@ html, body{
 .navbarTop a{ 
 	text-decoration: none;
 } 
-.navbarTop a -webkit-tap-highlight-color: transparent;
 
 .navButtons > li{
 	float: right;
