@@ -40,13 +40,18 @@ html, body{
    clear: both;
    height: 0;
 }
-.signedInAs{
+.headerLink{
 	cursor: pointer;
 	color: #002C71;;
 }
-.signedInAs:hover{
+.headerLink:hover{
 	color: #ec942e;
 }
+
+#homeLink{
+	float: left;
+}
+
 .buttonMenu{
 	cursor: pointer;
 	padding: 10px 15px;
