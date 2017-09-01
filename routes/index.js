@@ -4,9 +4,7 @@ var User = require("../models/user");
 var Image = require("../models/image");
 var passport = require("passport");
 
-router.get("/login", function(req, res){
-    res.render("login", {stylesheetPage: "loginAndRegister.css"});
-});
+
 
 router.get("/register", function(req, res){
     res.render("register", {stylesheetPage: "loginAndRegister.css"});
@@ -22,30 +20,42 @@ router.post("/register", function(req, res){
         country: req.body.country,
     });
     var imageFile = req.files.image;
-    User.register(newUser, req.body.password, function(err, userCreated){
-        if (err) {
-            req.flash("error", err.message);
-            console.log(err);
-            res.redirect("/register");
-        }else{
-            Image.create({name: imageFile.name}, function(err, imageCreated){
-                if (err) {
-                    console.log(err);
-                }else{
-                    imageCreated.user.id = userCreated._id;
-                    imageCreated.user.username = userCreated.username;
-                    imageCreated.save();
-                    userCreated.profilePicture.id = imageCreated._id;
-                    userCreated.save();
-                    imageFile.mv('./public/images/users/' + imageCreated._id + '.jpg');
-                }
-            });
-            passport.authenticate("local")(req, res, function(){
-                req.flash("success", "You have successfully registered and logged  in as " + userCreated.username);
-                res.redirect("/");
-            });
-        }
-    });
+    var imageName = imageFile.name;
+    if (imageFile.mimetype.search("image") != -1) {    
+        User.register(newUser, req.body.password, function(err, userCreated){
+            if (err) {
+                req.flash("error", err.message);
+                res.redirect("/register");
+            }else{
+                Image.create({nameTemp: imageName}, function(err, imageCreated){
+                    if (err) {
+                        console.log(err);
+                    }else{
+                        var endingImg = imageName.substring(imageName.indexOf("."));
+                        imageCreated.user.id = userCreated._id;
+                        imageCreated.user.username = userCreated.username;
+                        imageCreated.imageSrc = '/images/users/' + imageCreated._id + endingImg;
+                        imageCreated.save();
+                        userCreated.profilePicture.id = imageCreated._id;
+                        userCreated.profilePicture.imageSrc = '/images/users/' + imageCreated._id + endingImg;
+                        userCreated.save();
+                        imageFile.mv('./public/images/users/' + imageCreated._id + endingImg);
+                    }
+                });
+                passport.authenticate("local")(req, res, function(){
+                    req.flash("success", 'You have successfully registered and logged  in as ' + userCreated.username);
+                    res.redirect("/");
+                });
+            }
+        });
+    }else {
+        req.flash("error", "You didn't uploaded image or your image weighs more than 1mb");
+        res.redirect("/register");
+    }
+});
+
+router.get("/login", function(req, res){
+    res.render("login", {stylesheetPage: "loginAndRegister.css"});
 });
 
 router.post("/login", passport.authenticate("local", 

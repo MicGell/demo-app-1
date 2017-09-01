@@ -15,7 +15,14 @@ router.get("/", function(req, res){
 });
 
 router.get("/:id", function(req, res){
-    res.render("users/singleShow", {stylesheetPage: "userPageComments.css"});
+    User.findById(req.params.id).populate("comments").exec(function(err, foundUser){
+        if (err) {
+            console.log(err);
+        }else{
+        	res.render("users/singleShow", {stylesheetPage: "userPageComments.css", user: foundUser});
+        }
+    });
+    
 });
 
 module.exports = router;

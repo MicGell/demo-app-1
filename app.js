@@ -1,17 +1,18 @@
-var express 		= require("express"),
-	bodyParser      = require("body-parser"),
-    app 			= express(),
+var express         = require("express"),
+    bodyParser      = require("body-parser"),
+    app             = express(),
     mongoose        = require("mongoose"),
-    flash           = require("connect-flash"),
+    flash        = require("connect-flash"),
     passport        = require("passport"),
     LocalStrategy   = require("passport-local"),
-    methodOverride  = require("method-override"),
+    methodOverride   = require("method-override"),
     Comment         = require("./models/comment"),
-    User            = require("./models/user"),
+    User         = require("./models/user"),
     fileUpload      = require('express-fileupload');
 
-app.use(fileUpload());
-    
+app.use(fileUpload({
+    limits: { fileSize: 1024 * 1024 }
+}));   
     
 //requring routes
 var usersRoutes = require("./routes/users"),
@@ -46,7 +47,6 @@ app.use(function(req, res, next){
     next();
 });
 
-
 app.use("/", indexRoutes);
 app.use("/users", usersRoutes);
 
@@ -56,8 +56,6 @@ app.get("/", function(req, res){
 app.get("*", function(req, res) {
     res.redirect("/");
 });
-
-
 
 var port = 99;
 if (process.env.PORT) {

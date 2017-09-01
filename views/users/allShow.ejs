@@ -3,30 +3,19 @@
 <h1 class="title">Browse users</h1>
 
 <div class="containerViewAllUsers">
-	<div class="informationOfUser">
-		<i id="shareIcon" class="icon-export"></i>
-		<div class="infomationOfUser_img">
-			<img src="/images/users/img_1.jpg" alt="avatar">
+	<% users.forEach( function(user) { %>
+		<div class="informationOfUser">
+			<a href="/users/<%= user._id%>"><i id="shareIcon" class="icon-export"></i></a>
+			<div class="infomationOfUser_img">
+				<img src="<%= user.profilePicture.imageSrc %>" alt="avatar">
+			</div>
+			<div class="infomationOfUser_text">
+				<h3><%= user.firstname %> <%= user.lastname %></h3>
+				<h5><%= user.city %>, <%= user.country %></h5>
+			</div>
+			<div class="clear">&nbsp;</div>
 		</div>
-		<div class="infomationOfUser_text">
-			<h3>Firstname Lastname</h3>
-			<h5>New York, USA</h5>
-		</div>
-		<div class="clear">&nbsp;</div>
-	</div>
-
-	<div class="informationOfUser">
-		<i id="shareIcon" class="icon-export"></i>
-		<div class="infomationOfUser_img">
-			<img src="/images/users/img_1.jpg" alt="avatar">
-		</div>
-		<div class="infomationOfUser_text">
-			<h3>Firstname Lastname</h3>
-			<h5>New York, USA</h5>
-		</div>
-		<div class="clear">&nbsp;</div>
-	</div>
-
+	<% }); %>
 </div>
-
+	
 <% include ../partials/footer %>
