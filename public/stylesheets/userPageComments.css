@@ -292,6 +292,8 @@
     padding: 14px;
     position: relative;
     margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 14px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
