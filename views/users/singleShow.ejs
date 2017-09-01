@@ -4,7 +4,8 @@
 	<div class="backgroundHeader"></div>
 	<div class="contentViewUser">
 		<div class="contentUserTop">
-			<a href="/users/<%= user._id%>"><i id="shareIcon" class="icon-export"></i></a>
+			<a href="/users/<%= user._id%>"><i class="icon-export shareIcon"></i></a>
+			<a href="/users/<%= user._id%>" class="currentLocation" value="/<%= user._id%>"></a>
 			<div class="infomationOfUser">
 				<div class="infomationOfUser_img">
 					<img src="<%= user.profilePicture.imageSrc %>" alt="avatar">
@@ -29,8 +30,10 @@
 						<p class="likesFollowsOfUser_number"><%= user.followers %></p>
 						<p class="likesFollowsOfUser_text">Followes</p>
 					</div>
-				</div>	
-				<button id="buttonFollow">FOLLOW</button>
+				</div>
+				<% if(currentUser && !user._id.equals(currentUser._id) ){ %>	
+					<button id="buttonFollow">FOLLOW</button>
+				 <% } %>
 				<div class="clear">&nbsp;</div>
 			</div>
 		</div>

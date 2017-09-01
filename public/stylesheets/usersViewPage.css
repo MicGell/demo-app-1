@@ -72,17 +72,6 @@
 	font-weight: 400;
 }
 
-#shareIcon{
-	cursor: pointer;
-	position: absolute;
-	top: 10.1px;
-	right: 10.1px;
-	color: #FFA640;
-}
-#shareIcon:hover{
-	color: #ec942e;
-}
-
 @media (max-width: 385px) {
 	.infomationOfUser_img, .infomationOfUser_text{
 		display: block;

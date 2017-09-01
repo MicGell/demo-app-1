@@ -31,19 +31,6 @@
 	box-shadow: 0 0 4px 0 rgba(172,172,172,0.50);
 }
 
-#shareIcon{
-	cursor: pointer;
-	position: absolute;
-	top: 10.1px;
-	right: 10.1px;
-	color: #FFA640;
-}
-#shareIcon:hover{
-	color: #ec942e;
-}
-
-
-
 .infomationOfUser{
 	padding: 20px 20px 19px 20px;
     overflow:hidden;

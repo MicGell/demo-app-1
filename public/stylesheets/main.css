@@ -102,7 +102,37 @@ html, body{
     border-color: #ebccd1;
 }
 
+.currentLocation{
+	position: absolute;
+    display: block;
+    right: 32px;
+    top: -20px;
+    z-index: 10;
+	background-color: #e8ecf2;
+    color: #002c71;
+    border-radius: 9px;
+    border: 1px #002c71 solid;
+    font-size: 11px;
+}
+.shareIcon{
+	cursor: pointer;
+	position: absolute;
+	top: 10.1px;
+	right: 10.1px;
+	color: #FFA640;
+}
+.shareIcon:hover{
+	color: #ec942e;
+}
+
+
 @viewport{
     zoom: 1.0;
     width: device-width;
+}
+
+@media (max-width: 410px) {
+	#currentLocation{
+		font-size: 2.7vw;
+	}
 }

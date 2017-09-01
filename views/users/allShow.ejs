@@ -5,7 +5,8 @@
 <div class="containerViewAllUsers">
 	<% users.forEach( function(user) { %>
 		<div class="informationOfUser">
-			<a href="/users/<%= user._id%>"><i id="shareIcon" class="icon-export"></i></a>
+			<a href="/users/<%= user._id%>"><i class="icon-export shareIcon"></i></a>
+			<a href="/users/<%= user._id%>" class="currentLocation" value="/<%= user._id%>"></a>
 			<div class="infomationOfUser_img">
 				<img src="<%= user.profilePicture.imageSrc %>" alt="avatar">
 			</div>
