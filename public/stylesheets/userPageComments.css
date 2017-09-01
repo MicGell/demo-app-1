@@ -163,6 +163,7 @@
 	margin-left: 20px;
 	font-size: 14px;
 	color: #FFA640;
+    text-decoration: underline;
 }
 .hideComments:hover{
 	color: #ec942e;
