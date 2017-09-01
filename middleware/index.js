@@ -12,13 +12,33 @@ middlewareObj.isLoggedIn = function(req, res, next){
     res.redirect("/login");
 }
 
-
 middlewareObj.checkCommentUserProfile = function(req, res, next){
     if (req.isAuthenticated()) {
         Comment.findById(req.params.comment_id, function(err, foundComment){
             if (err) {
-                req.flash("error", "Campground not found.");
-                res.redirect("/campgrounds");
+                req.flash("error", "User not found.");
+                res.redirect("/users");
+            }else{
+                if (foundComment.author.id.equals(req.user._id)) {
+                    next();
+                }else{
+                    req.flash("error", "You don't have premission to do that.");
+                    res.redirect("back");
+                }
+            }
+        });
+    }else{
+        req.flash("error", "You need to be logged in to do that!");
+        res.redirect("back");
+    }
+}
+
+middlewareObj.checkCommentOwnership = function(req, res, next){
+    if (req.isAuthenticated()) {
+        Comment.findById(req.params.comment_id, function(err, foundComment){
+            if (err) {
+                req.flash("error", "User not found.");
+                res.redirect("/users");
             }else{
                 if (foundComment.author.id.equals(req.user._id)) {
                     next();

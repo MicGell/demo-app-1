@@ -18,7 +18,7 @@ var UserSchema = new mongoose.Schema({
         },
         imageSrc: String
     },
-    comments: {
+    comments:{ 
         type:[{
             type: mongoose.Schema.Types.ObjectId,
             ref: "Comment"

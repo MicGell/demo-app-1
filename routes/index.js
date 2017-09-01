@@ -43,8 +43,9 @@ router.post("/register", function(req, res){
                     }
                 });
                 passport.authenticate("local")(req, res, function(){
-                    req.flash("success", 'You have successfully registered and logged  in as ' + userCreated.username);
-                    res.redirect("/");
+                    var msg = 'You have successfully registered and logged  in as ' + userCreated.username;
+                    req.flash("success", msg);
+                    res.redirect("/users");
                 });
             }
         });
@@ -60,7 +61,7 @@ router.get("/login", function(req, res){
 
 router.post("/login", passport.authenticate("local", 
     {
-        successRedirect: "/",
+        successRedirect: "/users",
         failureRedirect: "/login"
     }), function(req, res){
 });
@@ -68,7 +69,7 @@ router.post("/login", passport.authenticate("local",
 router.get("/logout", function(req, res){
     req.logout();
     req.flash("success", "Logged you out!");
-    res.redirect("/");
+    res.redirect("/users");
 });
 
 module.exports = router;

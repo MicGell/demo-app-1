@@ -39,57 +39,30 @@
 		</div>
 		<div class="contentComments">		
 			<p class="hideComments" >Hide comments ( <%= user.comments.length %> )</p>
-
 			<div class="comments">
-				<div class="comment">
-					<div class="comment_userImg">
-						<img src="/images/users/img_1.jpg" alt="avatar">
-					</div>
-					<div class="comment_userName_date">
-						<h5>Firstname Lastname</h5>
-						<p>1d</p>
+				<% user.comments.forEach( function(comment) { %>		
+					<div class="comment">
+						<div class="comment_userImg">
+							<img src="<%= comment.author.profilePicture %>" alt="avatar">
+						</div>
+						<div class="comment_userName_date">
+							<h5><%= comment.author.firstname %> <%= comment.author.lastname %></h5>
+							<p>1d</p>
+							<div class="clear">&nbsp;</div>
+						</div>
+						<p class="comment_text">
+							<%= comment.text %>
+						</p>
 						<div class="clear">&nbsp;</div>
 					</div>
-					<p class="comment_text">
-						Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis. 
-					</p>
-					<div class="clear">&nbsp;</div>
-				</div>
+				<% }); %>
 
-				<div class="comment">
-					<div class="comment_userImg">
-						<img src="/images/users/img_1.jpg" alt="avatar">
-					</div>
-					<div class="comment_userName_date">
-						<h5>Firstname Lastname</h5>
-						<p>1d</p>
-						<div class="clear">&nbsp;</div>
-					</div>
-					<p class="comment_text">
-						Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis. 
-					</p>
-					<div class="clear">&nbsp;</div>
-				</div>
-
-				<div class="comment">
-					<div class="comment_userImg">
-						<img src="/images/users/img_1.jpg" alt="avatar">
-					</div>
-					<div class="comment_userName_date">
-						<h5>Firstname Lastname</h5>
-						<p>1d</p>
-						<div class="clear">&nbsp;</div>
-					</div>
-					<p class="comment_text">
-						Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor. Pellentesque facilisis. 
-					</p>
-					<div class="clear">&nbsp;</div>
-				</div>
 			</div>
 
 			<p id="addNewComment">Add a comment</p>
-			<form class="newCommentForm hideByHeight" action="">
-				<textarea name="" id="" cols="30" rows="10"></textarea>
+			<form name="commentFormPost" class="newCommentForm hideByHeight" action="/users/<%= user._id %>/comments/new" method="post">
+				<textarea form="commentFormPost" id="comment" type="text" name="comment[text]" placeholder="Comment content" required='true'></textarea>
+				<!-- <input type="text" name="comment[text]" placeholder="Comment content" required='true'> -->
 				<input type="submit" value="Submit">
 			</form>
 			<div class="line"></div>

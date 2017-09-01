@@ -10,6 +10,7 @@ function init () {
 	// newCommentForm.classList.toggle('hideByHeight');
 	addHideComments();
 	addNewComment();
+	heartLikeClick();
 }
 
 function addHideComments () {
@@ -24,7 +25,7 @@ function addNewComment () {
 	})
 }
 
-function addNewComment () {
+function heartLikeClick () {
 	heartLike.addEventListener("click", function () {
 		heartLike.classList.toggle('icon-heart');
 	})

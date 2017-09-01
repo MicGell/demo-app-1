@@ -16,7 +16,8 @@ app.use(fileUpload({
     
 //requring routes
 var usersRoutes = require("./routes/users"),
-    indexRoutes = require("./routes/index");
+    indexRoutes = require("./routes/index"),
+    commentRoutes = require("./routes/comments");
 
 mongoose.connect("mongodb://tester:zxc@ds111124.mlab.com:11124/demo-recruitment-app-1");
 
@@ -49,6 +50,7 @@ app.use(function(req, res, next){
 
 app.use("/", indexRoutes);
 app.use("/users", usersRoutes);
+app.use("/users/:id/comments", commentRoutes);
 
 app.get("/", function(req, res){
     res.redirect("/users");
