@@ -3,21 +3,21 @@
 <div class="loginOrRegisterContainer register">
 	<h1>Sign Up</h1>
 
-	<form action="">
+	<form action="/register" method="post" ref='uploadForm' id='uploadForm' encType="multipart/form-data">
 		<i class="icon-user"></i>
-		<input type="text" placeholder="User name">
+		<input type="text" placeholder="User name" name="username">
 		<i class="icon-lock"></i>
-		<input type="password" placeholder="Password">
+		<input type="password" placeholder="Password" name="password">
 		<i class="icon-user"></i>
-		<input type="text" placeholder="First Name">
+		<input type="text" placeholder="First Name" name="firstname">
 		<i class="icon-user"></i>
-		<input type="text" placeholder="Last Name">
+		<input type="text" placeholder="Last Name" name="lastname">
 		<i class="icon-home"></i>
-		<input type="text" placeholder="City">
+		<input type="text" placeholder="City" name="city">
 		<i class="icon-home"></i>
-		<input type="text" placeholder="Country">
+		<input type="text" placeholder="Country" name="country">
 		<i class="icon-picture"></i>
-		<input type="file" placeholder="Select Profile Picture">
+		<input type="file" placeholder="Select Profile Picture" name="image">
 		<input type="submit" value="Submit">
 	</form>
 
