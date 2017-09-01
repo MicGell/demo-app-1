@@ -9,7 +9,7 @@ router.get("/", function(req, res){
         if (err) {
             console.log(err);
         }else{
-            res.render("users/allShow", {users: allUsers, stylesheetPage: "usersViewPage.css", script: "singleUserAndUserViewShow"});
+            res.render("users/allShow", {users: allUsers, stylesheetPage: "usersViewPage.css", scripts: ["singleUserAndUserViewShow"]});
         }    
     });
 });
@@ -19,7 +19,7 @@ router.get("/:id", function(req, res){
         if (err) {
             console.log(err);
         }else{
-        	res.render("users/singleShow", {stylesheetPage: "userPageComments.css", user: foundUser, script: "singleUserAndUserViewShow"});
+        	res.render("users/singleShow", {stylesheetPage: "userPageComments.css", user: foundUser, scripts: ["singleUserAndUserViewShow", "singleUserPage"]});
         }
     });
     

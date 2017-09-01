@@ -66,15 +66,17 @@
 	padding: 18px;
 }
 
-#heartLike{
+.heartLike{
 	cursor: pointer;
 	color: #D3D3D3;
 	font-size: 12px;
 }
-#heartLike:hover{
-	color: red;
+.heartLike:hover{
+	color: #da1e1e;
 }
-
+.icon-heart{
+	color: #f12a2a;
+}
 .infomationOfUser_text h3, .infomationOfUser_text h5{
 	margin: 0;
 	padding: 0;
@@ -156,15 +158,15 @@
     box-shadow: 0 0 4px 0 rgba(172,172,172,0.50);
 }
 
-#hideComments{
+.hideComments{
+	cursor: pointer;;
 	margin-left: 20px;
 	font-size: 14px;
 	color: #FFA640;
 }
-#hideComments:hover{
+.hideComments:hover{
 	color: #ec942e;
 }
-
 .comments{
 	margin-top: 30px;
 	margin-left: 20px;
@@ -172,7 +174,9 @@
 	height: 469px;
 	overflow-y: auto;
 }
-
+.hideByHeight{
+	height: 0;
+}
 .comment{
 	padding-bottom: 29px;
 	margin-bottom: 29px;
@@ -251,6 +255,7 @@
 }
 
 #addNewComment{
+	cursor: pointer;
 	margin-left: 25px;
 	font-size: 18px;
 	color: #8298B9;
@@ -270,7 +275,59 @@
 	border-radius: 50%;
 }
 
-
+.newCommentForm{
+	position: relative;
+	width: 95%;
+	padding: 15px 2.5%;
+}
+.newCommentForm textarea, .newCommentForm input{
+    display: block;
+    border-radius: 8px;
+    width: 90%;
+    border: 1px solid #cbcbd2;
+    background-color: #fff;
+    color: #002C71;
+    padding: 6px 12px;
+    position: relative;
+    margin-bottom: 20px;
+    font-size: 14px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.newCommentForm textarea{
+    box-shadow: inset 0 1px 2px rgba(203,203,210,0.4);
+    border: 1px solid #cbcbd2;
+    color: #3f3f44;
+}
+.newCommentForm textarea:focus{
+	border: 1px #002C71 solid;
+	outline-width: 0;
+	outline: none;
+}
+.newCommentForm input[type=submit]{
+	display: block;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+	cursor: pointer;
+	background-color: #002C71;
+	border: 0;
+	outline: 0;
+	color: #FFFFFF;
+	font-weight: 500;
+}
+.newCommentForm input[type=submit]:hover{
+	background-color: #ec942e;
+	-webkit-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.42);
+	-moz-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.42);
+	box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.42);
+}
+.hideByHeight textarea, .hideByHeight input[type=submit]{
+	height: 0;
+    padding: 0;
+    display: none;
+}
 
 @media (max-width: 521px) {
 	.containerViewUser{
@@ -332,7 +389,7 @@
 		width: 98%;
 	}
 	.comments{
-		padding: 0 1% 30px 1%;
+		padding: 0 1%;
 	}
 	.comment_userName_date, .comment_userImg{
 		display: block;

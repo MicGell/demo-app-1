@@ -11,7 +11,7 @@
 					<img src="<%= user.profilePicture.imageSrc %>" alt="avatar">
 				</div>
 				<div class="infomationOfUser_text">
-					<h3><%= user.firstname %> <%= user.lastname %> <i id="heartLike" class="icon-heart-empty"></i></h3>
+					<h3><%= user.firstname %> <%= user.lastname %> <i class="heartLike icon-heart-empty"></i></h3>
 					<h5><%= user.city %>, <%= user.country %></h5>
 				</div>
 				<div class="clear">&nbsp;</div>
@@ -38,7 +38,7 @@
 			</div>
 		</div>
 		<div class="contentComments">		
-			<a id="hideComments" href="">Hide comments (353)</a>
+			<p class="hideComments" >Hide comments ( <%= user.comments.length %> )</p>
 
 			<div class="comments">
 				<div class="comment">
@@ -87,7 +87,11 @@
 				</div>
 			</div>
 
-			<a id="addNewComment" href="#">Add a comment</a>
+			<p id="addNewComment">Add a comment</p>
+			<form class="newCommentForm hideByHeight" action="">
+				<textarea name="" id="" cols="30" rows="10"></textarea>
+				<input type="submit" value="Submit">
+			</form>
 			<div class="line"></div>
 		</div>
 	</div>

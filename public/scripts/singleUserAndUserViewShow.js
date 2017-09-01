@@ -37,5 +37,5 @@ function showCurentLocationFunctionLeave(index) {
 	timeOutHide[index] = setTimeout(function(){ 
 	currentLocation[index].textContent = "";
 	currentLocation[index].style.padding = "";
-	}, 1000);
+	}, 900);
 }

@@ -17,6 +17,13 @@ var UserSchema = new mongoose.Schema({
             ref: "Image"
         },
         imageSrc: String
+    },
+    comments: {
+        type:[{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Comment"
+        }],
+        default:[]
     }
 });
 
