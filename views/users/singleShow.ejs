@@ -60,9 +60,8 @@
 			</div>
 
 			<p id="addNewComment">Add a comment</p>
-			<form name="commentFormPost" class="newCommentForm hideByHeight" action="/users/<%= user._id %>/comments/new" method="post">
-				<textarea form="commentFormPost" id="comment" type="text" name="comment[text]" placeholder="Comment content" required='true'></textarea>
-				<!-- <input type="text" name="comment[text]" placeholder="Comment content" required='true'> -->
+			<form class="newCommentForm hideByHeight" action="/users/<%= user._id %>/comments/new" method="post" name="commentFormPost" id="commentFormPost">
+				<textarea form="commentFormPost" id="comment" name="comment[text]" placeholder="Comment content" required='true'></textarea>				
 				<input type="submit" value="Submit">
 			</form>
 			<div class="line"></div>

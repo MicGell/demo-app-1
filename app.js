@@ -59,11 +59,11 @@ app.get("*", function(req, res) {
     res.redirect("/");
 });
 
-var port = 99;
+var port = 8080;
 if (process.env.PORT) {
 	port = process.env.PORT;
 } else {
-	port = 99;
+	port = 8080;
 }
 app.listen(port, process.env.IP, function(){
     console.log("Server has started.");
