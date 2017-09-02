@@ -148,7 +148,7 @@ html, body{
 		margin: 0;
 	    margin-top: 40px;
 	}
-	#currentLocation{
+	.currentLocation{
 		font-size: 2.7vw;
 	}
 }
@@ -166,3 +166,20 @@ html, body{
 		margin-right: auto;
 	}
 }
+
+
+.animationBtnMenu{
+      -webkit-transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    -moz-transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    -o-transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.currentLocation{
+      -webkit-transition: all 0.5s cubic-bezier(0.42, 0.06, 0.2, 1);
+    -moz-transition: all 0.5s cubic-bezier(0.42, 0.06, 0.2, 1);
+    -o-transition: all 0.5s cubic-bezier(0.42, 0.06, 0.2, 1);
+    transition: all 0.5s cubic-bezier(0.42, 0.06, 0.2, 1);
+}
+
+

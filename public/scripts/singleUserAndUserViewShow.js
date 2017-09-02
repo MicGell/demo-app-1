@@ -30,7 +30,7 @@ function mouseoverListenerFunciton (index) {
 }
 
 function showCurentLocationFunctionOver(index) {
-	currentLocation[index].textContent = "link: " + window.location.href + currentLocation[index].getAttribute("value").value ;
+	currentLocation[index].textContent = "link: " + currentLocation[index].href ;
 	currentLocation[index].style.padding = "6px 12px";
 }
 function showCurentLocationFunctionLeave(index) {

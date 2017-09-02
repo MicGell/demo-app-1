@@ -12,7 +12,7 @@ router.get("/", function(req, res){
             res.render("users/allShow", {
                 users: allUsers, 
                 stylesheetPage: "usersViewPage.css", 
-                scripts: ["singleUserAndUserViewShow"]
+                scripts: ["singleUserAndUserViewShow", "showAllUserPage"]
             });
         }    
     });

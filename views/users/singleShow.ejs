@@ -55,17 +55,17 @@
 						<% } else{%>
 							<% if (followed) { -%>
 								<form action="/users/<%= user._id %>/unfollow" method="post">
-									<button type="submit" class="buttonFollow buttonFollowing">FOLLOWING</button>
+									<button type="submit" class="buttonFollow animationBtnMenu buttonFollowing">FOLLOWING</button>
 								</form>
 							<% } else { -%>
 								<form action="/users/<%= user._id %>/follow" method="post">
-									<button type="submit" class="buttonFollow">FOLLOW</button>
+									<button type="submit" class="buttonFollow animationBtnMenu">FOLLOW</button>
 								</form>
 							<% } -%>
 						<% }%>
 					<% }else{ %>	
 						<form action="/users/<%= user._id %>/follow" method="post">
-							<button type="submit" class="buttonFollow">FOLLOW</button>
+							<button type="submit" class="buttonFollow animationBtnMenu">FOLLOW</button>
 						</form>
 					<% } %>				
 				<div class="clear">&nbsp;</div>
@@ -73,7 +73,7 @@
 		</div>
 		<div class="contentComments">		
 			<p class="hideComments" >Hide comments ( <%= user.comments.length %> )</p>
-			<div class="comments">
+			<div class="comments animationHeight">
 				<% user.comments.forEach( function(comment) { %>		
 					<div class="comment">
 						<div class="headerComment">
@@ -96,9 +96,9 @@
 			</div>
 
 			<p id="addNewComment">Add a comment</p>
-			<form class="newCommentForm hideByHeight" action="/users/<%= user._id %>/comments/new" method="post" name="commentFormPost" id="commentFormPost">
+			<form class="newCommentForm hideByHeight animationHeight" action="/users/<%= user._id %>/comments/new" method="post" name="commentFormPost" id="commentFormPost">
 				<textarea form="commentFormPost" id="comment" name="comment[text]" placeholder="Comment content" required='true'></textarea>				
-				<input type="submit" value="Submit">
+				<input class="animationBtnMenu" type="submit" value="Submit">
 			</form>
 			<div class="line"></div>
 		</div>
