@@ -23,7 +23,23 @@ html, body{
 	padding: 10px;
 	text-align: center;
 }
+.infomationOfUser_img{
+	height: 70px;
+	width: 70px;
+	display: inline-block;
+	float: left;
+}
 
+.infomationOfUser_img > div{
+    border-radius: 49%;
+    height: 100%;
+    width: 100%;
+	background: no-repeat center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
 .navbarTop a{ 
 	text-decoration: none;
     -webkit-touch-callout: none;

@@ -22,7 +22,9 @@
                 <li><a class="buttonMenu animationBtnMenu" href="/logout">Logout</a></li>                    
                 <li id="profileInfo">
                     <a class="headerLink" href="/users/<%= currentUser._id %>">Signed In As <%= currentUser.username %></a>
-                    <img id="imgProfile" src="<%= currentUser.profilePicture.imageSrc %>" alt="avatar">
+                    <div id="imgProfile" class="infomationOfUser_img">
+                        <div style="background-image: url(<%= currentUser.profilePicture.imageSrc %>)"></div>
+                    </div>
                     <div class="clear">&nbsp;</div>
                 </li>
             <% } %> 
