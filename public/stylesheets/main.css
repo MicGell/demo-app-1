@@ -40,6 +40,13 @@ html, body{
 	-o-background-size: cover;
 	background-size: cover;
 }
+.register .infomationOfUser_img{
+	height: 0;
+	width: 0;
+	display: block;
+	float: none;
+	margin: 0 auto 20px auto;
+}
 .navbarTop a{ 
 	text-decoration: none;
     -webkit-touch-callout: none;

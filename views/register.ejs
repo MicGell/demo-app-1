@@ -17,7 +17,10 @@
 		<i class="icon-home"></i>
 		<input type="text" placeholder="Country" name="country" min="3" required='true'>
 		<i class="icon-picture"></i>
-		<input type="file" placeholder="Select Profile Picture" name="image" required='true'>
+		<input id="imgInp" type="file" placeholder="Select Profile Picture" name="image" accept="image/*" onchange="loadFile(event)" required='true'>
+		<div class="infomationOfUser_img">
+			<div id="output"></div>
+		</div>
 		<input type="submit" value="Submit">
 	</form>
 

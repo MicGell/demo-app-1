@@ -7,7 +7,10 @@ var passport = require("passport");
 
 
 router.get("/register", function(req, res){
-    res.render("register", {stylesheetPage: "loginAndRegister.css"});
+    res.render("register", {
+        stylesheetPage: "loginAndRegister.css",
+         scripts: ["register"]
+    });
 });
 
 router.post("/register", function(req, res){
