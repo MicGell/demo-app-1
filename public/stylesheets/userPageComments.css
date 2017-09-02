@@ -43,10 +43,10 @@
 	float: left;
 }
 
-.infomationOfUser img{
+.infomationOfUser_img > div{
     border-radius: 49%;
-    height: 70px;
-    width: 70px;
+    height: 100%;
+    width: 100%;
 	background: no-repeat center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;

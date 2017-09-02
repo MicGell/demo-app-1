@@ -8,7 +8,7 @@
 			<a href="/users/<%= user._id%>" class="currentLocation" value="/<%= user._id%>"></a>
 			<div class="infomationOfUser">
 				<div class="infomationOfUser_img">
-					<img src="<%= user.profilePicture.imageSrc %>" alt="avatar">
+					<div style="background-image: url(<%= user.profilePicture.imageSrc %>)"></div>
 				</div>
 				<div class="infomationOfUser_text">
 					<h3><%= user.firstname %> <%= user.lastname %> 

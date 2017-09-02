@@ -43,7 +43,7 @@ router.post("/register", function(req, res){
                     }
                 });
                 passport.authenticate("local")(req, res, function(){
-                    var msg = 'You have successfully registered and logged  in as ' + userCreated.username;
+                    var msg = 'You have successfully registered and logged in as ' + userCreated.username;
                     req.flash("success", msg);
                     res.redirect("/users");
                 });
