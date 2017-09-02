@@ -1,7 +1,9 @@
 var express = require("express");
 var router = express.Router();
 var User = require("../models/user");
+var Image = require("../models/image");
 var middleware = require("../middleware");
+var fs = require('fs');
 
 
 router.get("/", function(req, res){
@@ -41,12 +43,58 @@ router.get("/:id", function(req, res){
                 scripts: ["singleUserAndUserViewShow", "singleUserPage"]
             });
         }
-    });
-    
+    });    
 });
 
+router.get("/:id/edit", middleware.isLoggedIn, function(req, res){
+    res.render("users/edit", {
+        stylesheetPage: "loginAndRegister.css",
+        scripts: ["register"]
+    });
+});
+
+router.put("/:id/edit", middleware.checkUserUserProfile, function(req, res){  
+    User.findById(req.params.id, function(err, foundUser){
+        if (err) {
+            console.log(err);
+        }else{
+            Image.findById(req.user.profilePicture.id, function(err, foundImage){
+                if (err) {
+                    console.log(err);
+                }else{
+                    if ( !(typeof req.files.image === 'undefined')) { 
+                        var imageFile = req.files.image;
+                        var imageName = imageFile.name;
+                        if (imageFile.mimetype.search("image") != -1) {
+                            var filePath = './public' + foundUser.profilePicture.imageSrc; 
+                                fs.unlinkSync(filePath, function (err) {
+                                console.log(err);
+                            });
+                            var endingImg = imageName.substring(imageName.indexOf("."));
+                            foundImage.imageSrc = '/images/users/' + foundImage._id + endingImg;
+                            foundImage.save();
+                            foundUser.profilePicture.id = foundImage._id;
+                            foundUser.profilePicture.imageSrc = '/images/users/' + foundImage._id + endingImg;
+                            imageFile.mv('./public/images/users/' + foundImage._id + endingImg);
+                        }
+                    }  
+                    foundUser.username = req.body.username,
+                    foundUser.password = req.body.password,
+                    foundUser.firstname = req.body.firstname,
+                    foundUser.lastname = req.body.lastname,
+                    foundUser.city = req.body.city,
+                    foundUser.country = req.body.country,
+                    foundUser.save();      
+                    var msg = 'You have successfully edited ' + foundUser.username +' profile';
+                    req.flash("success", msg);
+                    res.redirect("/users/" + foundUser._id);              
+                }
+            });  
+        }
+    })
+});   
+
 router.post("/:id/like", middleware.checkUserUserProfile, function(req, res){
-    console.log('test');
     User.findById(req.params.id, function(err, userFound){
         if (err) {
             req.flash("error", "Something went wrong!");
@@ -80,7 +128,6 @@ router.post("/:id/follow", middleware.checkUserUserProfile, function(req, res){
 });
 
 router.post("/:id/unlike", middleware.checkUserUserProfile, function(req, res){
-    console.log('test');
     User.findById(req.params.id, function(err, userFound){
         if (err) {
             req.flash("error", "Something went wrong!");

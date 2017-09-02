@@ -47,6 +47,10 @@ html, body{
 	float: none;
 	margin: 0 auto 20px auto;
 }
+.editProfile .infomationOfUser_img{
+	margin: 0 auto 20px auto;
+	float: none;
+}
 .navbarTop a{ 
 	text-decoration: none;
     -webkit-touch-callout: none;

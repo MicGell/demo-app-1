@@ -19,7 +19,7 @@ middlewareObj.checkUserUserProfile = function(req, res, next){
                 req.flash("error", "User not found.");
                 res.redirect("/users");
             }else{
-                if (!foundUser._id.equals(req.user._id)) {
+                if (foundUser._id.equals(req.user._id)) {
                     next();
                 }else{
                     req.flash("error", "You don't have premission to do that.");

@@ -25,12 +25,14 @@
 									</form>
 								<% } -%>
 							<% }%>
+							<a id="editProfile" href="/users/<%= user._id%>/edit">Edit profil</a>
 						<% }else{ %>	
 							<form class="formLike" action="/users/<%= user._id %>/like" method="post">
 								<button type="submit" class="buttonLike"><i class="heartLike icon-heart-empty"></i></button>
 							</form>
 						<% } %>
 					</h3>
+
 					<h5><%= user.city %>, <%= user.country %></h5>
 				</div>
 				<div class="clear">&nbsp;</div>

@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+<div class="loginOrRegisterContainer editProfile">
+	<h1>Edit Profile</h1>
+
+	<form action="/users/<%= currentUser._id%>/edit?_method=PUT" method="post" ref='uploadForm' id='uploadForm' encType="multipart/form-data">
+		<i class="icon-user"></i>
+		<input type="text" placeholder="User name" name="username" value="<%= currentUser.username%>" min="4" required='true'">
+		<i class="icon-lock"></i>
+		<input type="password" placeholder="Password" name="password" value="<%= currentUser.password%>" min="3" required='true'>
+		<i class="icon-user"></i>
+		<input type="text" placeholder="First Name" name="firstname" value="<%= currentUser.firstname%>" min="3" required='true'>
+		<i class="icon-user"></i>
+		<input type="text" placeholder="Last Name" name="lastname" value="<%= currentUser.lastname%>" min="3" required='true'>
+		<i class="icon-home"></i>
+		<input type="text" placeholder="City" name="city" value="<%= currentUser.city%>" min="3" required='true'>
+		<i class="icon-home"></i>
+		<input type="text" placeholder="Country" name="country" value="<%= currentUser.country%>" min="3" required='true'>
+		<i class="icon-picture"></i>
+		<input id="imgInp" type="file" placeholder="Select Profile Picture" name="image" value="<%= currentUser.image%>" accept="image/*" onchange="loadFile(event)">
+		<div class="infomationOfUser_img">
+			<div id="output" style="background-image: url(<%= currentUser.profilePicture.imageSrc %>)"></div>
+		</div>
+		<input type="submit" value="Submit">
+	</form>
+
+	<div class="linkRegisterContainer">
+		<p>Do have an account?</p>
+		<a class="register" href="/login">Log In</a>
+	</div>
+</div>
+
+<% include ../partials/footer %>
