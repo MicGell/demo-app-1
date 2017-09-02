@@ -6,7 +6,6 @@ var middleware = require("../middleware");
 
 // COMMENTS CREATE 
 router.post("/new", middleware.isLoggedIn, function(req, res){
-    console.log('test');
     User.findById(req.params.id, function(err, userFound){
         if (err) {
             req.flash("error", "Something went wrong!");
@@ -16,7 +15,6 @@ router.post("/new", middleware.isLoggedIn, function(req, res){
                 if (err) {
                     console.log(err);
                 }else{
-                    console.log(req.body);
                     comment.author.id = req.user._id;
                     comment.author.username = req.user.username;
                     comment.author.firstname = req.user.firstname,

@@ -10,7 +10,12 @@ var UserSchema = new mongoose.Schema({
     country: String,
     likes: { type: Number, default: 0 },
     following: { type: Number, default: 0 },
-    followers: { type: Number, default: 0 },
+    followers: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ],
     profilePicture: {
         id: {
             type: mongoose.Schema.Types.ObjectId,
@@ -24,7 +29,19 @@ var UserSchema = new mongoose.Schema({
             ref: "Comment"
         }],
         default:[]
-    }
+    },
+    likesUsers:[
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ],
+    followingsUsers:[
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ]
 });
 
 UserSchema.plugin(passportLocalMongoose);

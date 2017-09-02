@@ -12,6 +12,7 @@ var commentSchema = mongoose.Schema({
 		firstname: String,
 		lastname: String,
 		profilePicture: String
+        //correct model, remove this things
     }
 });
 

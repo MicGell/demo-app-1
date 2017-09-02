@@ -123,10 +123,10 @@
 
 
 
-#buttonFollow:focus, #buttonFollow:active{
+.buttonFollow:focus, .buttonFollow:active{
 	background-color: #ec942e;
 }
-#buttonFollow{
+.buttonFollow{
 	cursor: pointer;
 	padding: 0;
 	margin: 0;
@@ -142,11 +142,19 @@
 	letter-spacing: 4.2px;
 	font-weight: 700;
 }
-#buttonFollow:hover{
+.buttonFollow:hover{
 	background-color: #ec942e;
 	-webkit-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.42);
 	-moz-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.42);
 	box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.42);
+}
+.buttonFollowing{
+	width: 141px;
+	letter-spacing: 3px;
+	background-color: #ec942e;
+}
+.buttonFollowing:hover{
+	background-color: #FFA640;
 }
 
 .contentComments{
@@ -234,7 +242,8 @@
 .comment_text{
     display: inline-block;
     width: 333px;
-    margin: 6px 0 0 11px;
+    margin: 0;
+    margin-left: 50px; 
 	font-size: 14px;
 	color: #444444;
 	letter-spacing: 0;
@@ -332,6 +341,17 @@
     padding: 0;
     display: none;
 }
+.formLike{
+	display: inline-block;
+}
+.buttonLike{
+	background-color: inherit;
+    border: none;
+}
+
+.headerComment{
+    display: inline-block;
+}
 
 @media (max-width: 521px) {
 	.containerViewUser{
@@ -352,7 +372,7 @@
 		display: block;
 		float: none;
 	}
-	#buttonFollow{
+	.buttonFollow, .buttonFollowing{
 		display: block;
 		width: 90%;
 		margin: 0 auto;
@@ -369,7 +389,6 @@
 		margin-left: 45px;
 	}
 	.comment_text{
-		margin: 1px 0 0 11px;
 		width: 177px;
 	}
 	.likesFollowsOfUser_block_group{
@@ -389,7 +408,7 @@
 		margin-left: 1%;
 	}
 	.comment_text{
-		margin: 6px 1%;
+		margin: 15px 1%;
 		width: 98%;
 	}
 	.comments{
@@ -415,6 +434,9 @@
 	}
 	.comment_userName_date p{
 		right: 0;
+	}
+	.headerComment{
+		width: 100%;
 	}
 }
 

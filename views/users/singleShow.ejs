@@ -11,7 +11,26 @@
 					<img src="<%= user.profilePicture.imageSrc %>" alt="avatar">
 				</div>
 				<div class="infomationOfUser_text">
-					<h3><%= user.firstname %> <%= user.lastname %> <i class="heartLike icon-heart-empty"></i></h3>
+					<h3><%= user.firstname %> <%= user.lastname %> 
+						<% if( currentUser ){ %>
+							<% if( user._id.equals(currentUser._id) ){ %>
+							<% } else{%>
+								<% if (liked) { -%>
+									<form class="formLike" action="/users/<%= user._id %>/unlike" method="post">
+										<button type="submit" class="buttonLike"><i type="submit" class="heartLike icon-heart-empty icon-heart"></i></button>
+									</form>
+								<% } else { -%>
+									<form class="formLike" action="/users/<%= user._id %>/like" method="post">
+										<button type="submit" class="buttonLike"><i type="submit" class="heartLike icon-heart-empty"></i></button>
+									</form>
+								<% } -%>
+							<% }%>
+						<% }else{ %>	
+							<form class="formLike" action="/users/<%= user._id %>/like" method="post">
+								<button type="submit" class="buttonLike"><i class="heartLike icon-heart-empty"></i></button>
+							</form>
+						<% } %>
+					</h3>
 					<h5><%= user.city %>, <%= user.country %></h5>
 				</div>
 				<div class="clear">&nbsp;</div>
@@ -19,21 +38,36 @@
 			<div class="likesFollowsOfUser">
 				<div class="likesFollowsOfUser_block_group">
 					<div class="likesFollowsOfUser_block">
-						<p class="likesFollowsOfUser_number"><%= user.likes.toString() %></p>
+						<p class="likesFollowsOfUser_number" id="likes"><%= user.likes %></p>
 						<p class="likesFollowsOfUser_text">Likes</p>
 					</div>
 					<div class="likesFollowsOfUser_block">
-						<p class="likesFollowsOfUser_number"><%= user.following %></p>
+						<p class="likesFollowsOfUser_number" id="following"><%= user.following %></p>
 						<p class="likesFollowsOfUser_text">Following</p>
 					</div>
 					<div class="likesFollowsOfUser_block">
-						<p class="likesFollowsOfUser_number"><%= user.followers %></p>
+						<p class="likesFollowsOfUser_number" id="followes"><%= user.followers.length %></p>
 						<p class="likesFollowsOfUser_text">Followes</p>
 					</div>
 				</div>
-				<% if(currentUser && !user._id.equals(currentUser._id) ){ %>	
-					<button id="buttonFollow">FOLLOW</button>
-				 <% } %>
+					<% if( currentUser ){ %>
+						<% if( user._id.equals(currentUser._id) ){ %>
+						<% } else{%>
+							<% if (followed) { -%>
+								<form action="/users/<%= user._id %>/unfollow" method="post">
+									<button type="submit" class="buttonFollow buttonFollowing">FOLLOWING</button>
+								</form>
+							<% } else { -%>
+								<form action="/users/<%= user._id %>/follow" method="post">
+									<button type="submit" class="buttonFollow">FOLLOW</button>
+								</form>
+							<% } -%>
+						<% }%>
+					<% }else{ %>	
+						<form action="/users/<%= user._id %>/follow" method="post">
+							<button type="submit" class="buttonFollow">FOLLOW</button>
+						</form>
+					<% } %>				
 				<div class="clear">&nbsp;</div>
 			</div>
 		</div>
@@ -42,13 +76,15 @@
 			<div class="comments">
 				<% user.comments.forEach( function(comment) { %>		
 					<div class="comment">
-						<div class="comment_userImg">
-							<img src="<%= comment.author.profilePicture %>" alt="avatar">
-						</div>
-						<div class="comment_userName_date">
-							<h5><%= comment.author.firstname %> <%= comment.author.lastname %></h5>
-							<p>1d</p>
-							<div class="clear">&nbsp;</div>
+						<div class="headerComment">
+							<div class="comment_userImg">
+								<img src="<%= comment.author.profilePicture %>" alt="avatar">
+							</div>
+							<div class="comment_userName_date">
+								<h5><%= comment.author.firstname %> <%= comment.author.lastname %></h5>
+								<p>1d</p>
+								<div class="clear">&nbsp;</div>
+							</div>
 						</div>
 						<p class="comment_text">
 							<%= comment.text %>
@@ -68,5 +104,4 @@
 		</div>
 	</div>
 </div>
-
 <% include ../partials/footer %>

@@ -12,14 +12,14 @@ middlewareObj.isLoggedIn = function(req, res, next){
     res.redirect("/login");
 }
 
-middlewareObj.checkCommentUserProfile = function(req, res, next){
+middlewareObj.checkUserUserProfile = function(req, res, next){
     if (req.isAuthenticated()) {
-        Comment.findById(req.params.comment_id, function(err, foundComment){
+        User.findById(req.params.id, function(err, foundUser){
             if (err) {
                 req.flash("error", "User not found.");
                 res.redirect("/users");
             }else{
-                if (foundComment.author.id.equals(req.user._id)) {
+                if (!foundUser._id.equals(req.user._id)) {
                     next();
                 }else{
                     req.flash("error", "You don't have premission to do that.");

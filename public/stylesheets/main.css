@@ -125,6 +125,15 @@ html, body{
 	color: #ec942e;
 }
 
+#imgProfile{
+	margin: 0;
+}
+#imgProfile img{
+	width: 50px;
+	height: 50px;
+	border-radius: 48%;
+}
+
 @viewport{
     zoom: 1.0;
     width: device-width;

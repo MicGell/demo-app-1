@@ -26,7 +26,10 @@ function addNewComment () {
 }
 
 function heartLikeClick () {
-	heartLike.addEventListener("click", function () {
+	heartLike.addEventListener("mouseover", function () {
+		heartLike.classList.toggle('icon-heart');
+	})
+	heartLike.addEventListener("mouseleave", function () {
 		heartLike.classList.toggle('icon-heart');
 	})
 }
