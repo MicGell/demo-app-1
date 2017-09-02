@@ -82,7 +82,7 @@
 							</div>
 							<div class="comment_userName_date">
 								<h5><%= comment.author.firstname %> <%= comment.author.lastname %></h5>
-								<p>1d</p>
+								<p><%= Math.round((dateNow - comment.date.getTime()) / 3600000 /24 ) %> d</p>
 								<div class="clear">&nbsp;</div>
 							</div>
 						</div>

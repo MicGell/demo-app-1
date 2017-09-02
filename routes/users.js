@@ -31,12 +31,13 @@ router.get("/:id", function(req, res){
                 var liked = req.user.likesUsers.find(isThisIdHere);
                 var followed = req.user.followingsUsers.find(isThisIdHere);
             }      
-
+            var date = Date.now();
         	res.render("users/singleShow", {
                 stylesheetPage: "userPageComments.css",
                 user: foundUser,
                 liked: liked,
                 followed: followed,
+                dateNow: date,
                 scripts: ["singleUserAndUserViewShow", "singleUserPage"]
             });
         }

@@ -19,11 +19,12 @@
                 <li><a class="buttonMenu" href="/login">Log In</a></li>
                 <li><a class="buttonMenu" href="/register">Sing Up</a></li>
             <% }else{ %>
-                <li><a class="buttonMenu" href="/logout">Logout</a></li>
-                <li id="imgProfile">
-                    <img src="<%= currentUser.profilePicture.imageSrc %>" alt="avatar">
+                <li><a class="buttonMenu" href="/logout">Logout</a></li>                    
+                <li id="profileInfo">
+                    <a class="headerLink" href="/users/<%= currentUser._id %>">Signed In As <%= currentUser.username %></a>
+                    <img id="imgProfile" src="<%= currentUser.profilePicture.imageSrc %>" alt="avatar">
+                    <div class="clear">&nbsp;</div>
                 </li>
-                <li><a class="headerLink" href="/users/<%= currentUser._id %>">Signed In As <%= currentUser.username %></a></li>
             <% } %> 
             <div class="clear">&nbsp;</div>
         </ul>

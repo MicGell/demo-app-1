@@ -12,16 +12,16 @@ html, body{
 	margin: 0;
 	margin-bottom: 60px;
 	width: 100%;
-    overflow:hidden;
-    zoom:1;
+	min-height: 70px;
 	border-bottom: 1px rgba(0, 44, 113, 0.22) solid;
     background-color: rgba(0, 44, 113, 0.09);
     box-shadow: 0px 2px 0px rgba(0, 44, 113, 0);
 }
 
 .navButtons{
-	margin: 10px;
-	padding: 0;
+	margin: 0;
+	padding: 10px;
+	text-align: center;
 }
 
 .navbarTop a{ 
@@ -40,7 +40,7 @@ html, body{
 	float: right;
 	list-style-type: none;
 	display: inline-block;
-	margin: 10px;
+    margin: 13px 10px 0 10px;
 }
 
 .clear {
@@ -124,14 +124,18 @@ html, body{
 .shareIcon:hover{
 	color: #ec942e;
 }
-
-#imgProfile{
-	margin: 0;
+#profileInfo a{
+	display: inline-block;
+    float: left;
 }
-#imgProfile img{
+#imgProfile{
+    display: inline-block;
+    float: left;
 	width: 50px;
 	height: 50px;
 	border-radius: 48%;
+    margin-top: -15px;
+    margin-left: 10px;
 }
 
 @viewport{
@@ -139,8 +143,26 @@ html, body{
     width: device-width;
 }
 
-@media (max-width: 410px) {
+@media (max-width: 420px) {
+	#profileInfo{
+		margin: 0;
+	    margin-top: 40px;
+	}
 	#currentLocation{
 		font-size: 2.7vw;
+	}
+}
+@media (max-width: 250px) {
+	#imgProfile, #profileInfo a{
+		float: none;
+		display: block;
+	}
+	#profileInfo{
+		width: 100%;
+	}
+	#imgProfile{
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
