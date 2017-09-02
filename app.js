@@ -19,7 +19,7 @@ var usersRoutes = require("./routes/users"),
     indexRoutes = require("./routes/index"),
     commentRoutes = require("./routes/comments");
 
-mongoose.connect("mongodb://admin:7D+tvyL2k\;PX^G,@ds111124.mlab.com:11124/demo-recruitment-app-1");
+mongoose.connect("mongodb://admin123:sadaQAWADSa2A11aaA@ds111124.mlab.com:11124/demo-recruitment-app-1");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
