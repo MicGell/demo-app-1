@@ -55,9 +55,9 @@ app.use("/users/:id/comments", commentRoutes);
 app.get("/", function(req, res){
     res.redirect("/users");
 });
-app.get("*", function(req, res) {
-    res.redirect("/");
-});
+// app.get("*", function(req, res) {
+//     res.redirect("/");
+// });
 
 var port = 8080;
 if (process.env.PORT) {

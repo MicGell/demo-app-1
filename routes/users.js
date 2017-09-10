@@ -29,13 +29,17 @@ router.get("/:id", function(req, res){
         if (err) {
             console.log(err);
         }else{
+            var followed = 0;
             function isThisIdHere(element) {
                 return element.equals(foundUser._id);                
             }
                                 
             if (typeof req.user !== "undefined") {
                 var liked = req.user.likesUsers.find(isThisIdHere);
-                var followed = req.user.followingsUsers.find(isThisIdHere);
+                followed = req.user.followingsUsers.find(isThisIdHere);
+                if (typeof followed === "undefined") {
+                    followed = 0;
+                }
             }      
             var date = Date.now();
         	res.render("users/singleShow", {
@@ -113,7 +117,9 @@ router.post("/:id/like", middleware.checkUserUserProfile, function(req, res){
                 userFound.likes = userFound.likes + 1;
                 userFound.save();
                 req.flash("success", "Successfully liked " + userFound.firstname + " " + userFound.lastname);
-                res.redirect("/users/" + userFound._id);
+                res.setTimeout(1000, function(){
+                    res.redirect("/users/" + userFound._id);
+                });
             }
         }
     });
@@ -135,7 +141,9 @@ router.post("/:id/unlike", middleware.checkUserUserProfile, function(req, res){
                 userFound.likes = userFound.likes - 1;
                 userFound.save();
                 req.flash("success", "Successfully unliked " + userFound.firstname + " " + userFound.lastname);
-                res.redirect("/users/" + userFound._id);
+                res.setTimeout(1000, function(){
+                    res.redirect("/users/" + userFound._id);
+                });
             }
         }
     });
@@ -157,7 +165,9 @@ router.post("/:id/follow", middleware.checkUserUserProfile, function(req, res){
                 userFound.followers.push(req.user);
                 userFound.save();
                 req.flash("success", "Successfully followed " + userFound.firstname + " " + userFound.lastname);
-                res.redirect("/users/" + userFound._id);
+                res.setTimeout(1000, function(){
+                    res.redirect("/users/" + userFound._id);
+                });
             }
         }
     });
@@ -181,7 +191,9 @@ router.post("/:id/unfollow", middleware.checkUserUserProfile, function(req, res)
                 userFound.followers.splice(indexToRemove2, 1);
                 userFound.save();
                 req.flash("success", "Successfully unfollowed " + userFound.firstname + " " + userFound.lastname);
-                res.redirect("/users/" + userFound._id);
+                res.setTimeout(1000, function(){
+                    res.redirect("/users/" + userFound._id);
+                });
             }
         }
     });

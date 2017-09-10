@@ -14,6 +14,7 @@ function init () {
 	addHideComments();
 	addNewComment();
 	heartLikeClick();
+	addDisablingButton();
 }
 
 function addHideComments () {
@@ -38,11 +39,17 @@ function heartLikeClick () {
 }
 
 function addDisablingButton() {
-	buttonLike.addEventListener("click", function () {
-		buttonLike.disabled = true;
-	})
-	buttonFollow.addEventListener("click", function () {
-		buttonFollow.disabled = true;
-		console.log('follow!!');
-	})
+	buttonLike.forEach( function(element) {
+		element.addEventListener("click", function () {
+			this.submit();
+			this.disabled = true;
+		})
+	});
+
+	buttonFollow.forEach( function(element) {
+		element.addEventListener("click", function () {
+			this.submit();
+			this.disabled = true;
+		})
+	});
 }
