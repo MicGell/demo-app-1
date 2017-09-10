@@ -79,8 +79,8 @@
 				<% user.comments.forEach( function(comment) { %>		
 					<div class="comment">
 						<div class="headerComment">
-							<div class="comment_userImg">
-								<img src="<%= comment.author.profilePicture %>" alt="avatar">
+							<div class="infomationOfUser_img">
+								<div style="background-image: url(<%= comment.author.profilePicture %>)"></div>
 							</div>
 							<div class="comment_userName_date">
 								<h5><%= comment.author.firstname %> <%= comment.author.lastname %></h5>
