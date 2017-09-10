@@ -53,7 +53,7 @@ router.get("/:id/edit", middleware.isLoggedIn, function(req, res){
     });
 });
 
-router.put("/:id/edit", middleware.checkUserUserProfile, function(req, res){  
+router.put("/:id/edit", middleware.isLoggedIn, function(req, res){  
     User.findById(req.params.id, function(err, foundUser){
         if (err) {
             console.log(err);

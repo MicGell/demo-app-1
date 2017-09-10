@@ -18,6 +18,8 @@
 		<input type="text" placeholder="Country" name="country" value="<%= currentUser.country%>" min="3" required='true'>
 		<i class="icon-picture"></i>
 		<input id="imgInp" type="file" placeholder="Select Profile Picture" name="image" value="<%= currentUser.image%>" accept="image/*" onchange="loadFile(event)">
+		<p>Image must be less than 1mb.</p>		
+		<div id="errorImage"></div>
 		<div class="infomationOfUser_img">
 			<div id="output" style="background-image: url(<%= currentUser.profilePicture.imageSrc %>)"></div>
 		</div>

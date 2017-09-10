@@ -130,6 +130,10 @@
 	color: #ec942e;
 }
 
+.loginOrRegisterContainer form p{
+  color: #002C71;
+}
+
 @media (max-width: 360px) {
 	.loginOrRegisterContainer form{
 		padding: 40px 5%;

@@ -54,7 +54,7 @@ router.post("/register", function(req, res){
             }
         });
     }else {
-        req.flash("error", "You didn't uploaded image or your image weighs more than 1mb");
+        req.flash("error", "You didn't uploaded image or your image weight more than 1mb");
         res.redirect("/register");
     }
 });
