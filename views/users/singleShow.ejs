@@ -16,19 +16,19 @@
 							<% if( user._id.equals(currentUser._id) ){ %>
 							<% } else{%>
 								<% if (liked) { -%>
-									<form class="formLike" action="/users/<%= user._id %>/unlike" method="post">
-										<button type="submit" class="buttonLike"><i type="submit" class="heartLike icon-heart-empty icon-heart"></i></button>
+									<form class="formLike" action="/users/<%= user._id %>/unlike" method="post" onsubmit="btnLike1.disabled = true; return true;">
+										<button name="btnLike1" type="submit" class="buttonLike"><i type="submit" class="heartLike icon-heart-empty icon-heart"></i></button>
 									</form>
 								<% } else { -%>
-									<form class="formLike" action="/users/<%= user._id %>/like" method="post">
-										<button type="submit" class="buttonLike"><i type="submit" class="heartLike icon-heart-empty"></i></button>
+									<form class="formLike" action="/users/<%= user._id %>/like" method="post" onsubmit="btnLike2.disabled = true; return true;">
+										<button name="btnLike2" type="submit" class="buttonLike"><i type="submit" class="heartLike icon-heart-empty"></i></button>
 									</form>
 								<% } -%>
 							<% }%>
 							<a id="editProfile" href="/users/<%= user._id%>/edit">Edit profil</a>
 						<% }else{ %>	
-							<form class="formLike" action="/users/<%= user._id %>/like" method="post">
-								<button type="submit" class="buttonLike"><i class="heartLike icon-heart-empty"></i></button>
+							<form class="formLike" action="/users/<%= user._id %>/like" method="post" onsubmit="btnLike3.disabled = true; return true;">
+								<button name="btnLike3" type="submit" class="buttonLike"><i class="heartLike icon-heart-empty"></i></button>
 							</form>
 						<% } %>
 					</h3>
@@ -56,18 +56,18 @@
 						<% if( user._id.equals(currentUser._id) ){ %>
 						<% } else{%>
 							<% if (followed) { -%>
-								<form action="/users/<%= user._id %>/unfollow" method="post">
-									<button type="submit" class="buttonFollow animationBtnMenu buttonFollowing">FOLLOWING</button>
+								<form action="/users/<%= user._id %>/unfollow" method="post" onsubmit="btnFollow1.disabled = true; return true;">
+									<button name="btnFollow1" type="submit" class="buttonFollow animationBtnMenu buttonFollowing">FOLLOWING</button>
 								</form>
 							<% } else { -%>
-								<form action="/users/<%= user._id %>/follow" method="post">
-									<button type="submit" class="buttonFollow animationBtnMenu">FOLLOW</button>
+								<form action="/users/<%= user._id %>/follow" method="post" onsubmit="btnFollow2.disabled = true; return true;">
+									<button name="btnFollow2" type="submit" class="buttonFollow animationBtnMenu">FOLLOW</button>
 								</form>
 							<% } -%>
 						<% }%>
 					<% }else{ %>	
-						<form action="/users/<%= user._id %>/follow" method="post">
-							<button type="submit" class="buttonFollow animationBtnMenu">FOLLOW</button>
+						<form action="/users/<%= user._id %>/follow" method="post" onsubmit="btnFollow3.disabled = true; return true;">
+							<button name="btnFollow3" type="submit" class="buttonFollow animationBtnMenu">FOLLOW</button>
 						</form>
 					<% } %>				
 				<div class="clear">&nbsp;</div>

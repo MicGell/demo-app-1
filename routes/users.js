@@ -5,6 +5,10 @@ var Image = require("../models/image");
 var middleware = require("../middleware");
 var fs = require('fs');
 
+var unlock_route = function(req, res, next){
+  req.session.processing = false; // unset flag
+  next();
+};
 
 router.get("/", function(req, res){
     User.find({},function(err, allUsers){
@@ -100,29 +104,17 @@ router.post("/:id/like", middleware.checkUserUserProfile, function(req, res){
             req.flash("error", "Something went wrong!");
             console.log(err);
         }else{
-            req.user.likesUsers.push(userFound);
-            req.user.save();
-            userFound.likes = userFound.likes + 1;
-            userFound.save();
-            req.flash("success", "Successfully liked " + userFound.firstname + " " + userFound.lastname);
-            res.redirect("/users/" + userFound._id);
-        }
-    });
-});
-
-router.post("/:id/follow", middleware.checkUserUserProfile, function(req, res){
-    User.findById(req.params.id, function(err, userFound){
-        if (err) {
-            req.flash("error", "Something went wrong!");
-            console.log(err);
-        }else{
-            req.user.following = req.user.following + 1;
-            req.user.followingsUsers.push(userFound);
-            req.user.save();
-            userFound.followers.push(req.user);
-            userFound.save();
-            req.flash("success", "Successfully followed " + userFound.firstname + " " + userFound.lastname);
-            res.redirect("/users/" + userFound._id);
+            function isThisIdUserFoundHere(element) {
+                return element.equals(userFound._id);                
+            }
+            if (typeof req.user.likesUsers.find(isThisIdUserFoundHere) === "undefined") {
+                req.user.likesUsers.push(userFound);
+                req.user.save();
+                userFound.likes = userFound.likes + 1;
+                userFound.save();
+                req.flash("success", "Successfully liked " + userFound.firstname + " " + userFound.lastname);
+                res.redirect("/users/" + userFound._id);
+            }
         }
     });
 });
@@ -133,13 +125,40 @@ router.post("/:id/unlike", middleware.checkUserUserProfile, function(req, res){
             req.flash("error", "Something went wrong!");
             console.log(err);
         }else{
-            var indexToRemove = req.user.likesUsers.indexOf(userFound);
-            req.user.likesUsers.splice(indexToRemove, 1);
-            req.user.save();
-            userFound.likes = userFound.likes - 1;
-            userFound.save();
-            req.flash("success", "Successfully unliked " + userFound.firstname + " " + userFound.lastname);
-            res.redirect("/users/" + userFound._id);
+            function isThisIdUserFoundHere(element) {
+                return element.equals(userFound._id);                
+            }
+            if (typeof req.user.likesUsers.find(isThisIdUserFoundHere) !== "undefined") {
+                var indexToRemove = req.user.likesUsers.indexOf(userFound);
+                req.user.likesUsers.splice(indexToRemove, 1);
+                req.user.save();
+                userFound.likes = userFound.likes - 1;
+                userFound.save();
+                req.flash("success", "Successfully unliked " + userFound.firstname + " " + userFound.lastname);
+                res.redirect("/users/" + userFound._id);
+            }
+        }
+    });
+});
+
+router.post("/:id/follow", middleware.checkUserUserProfile, function(req, res){
+    User.findById(req.params.id, function(err, userFound){
+        if (err) {
+            req.flash("error", "Something went wrong!");
+            console.log(err);
+        }else{
+            function isThisIdUserFoundHere(element) {
+                return element.equals(userFound._id);                
+            }
+            if (typeof req.user.followingsUsers.find(isThisIdUserFoundHere) === "undefined") {
+                req.user.following = req.user.following + 1;
+                req.user.followingsUsers.push(userFound);
+                req.user.save();
+                userFound.followers.push(req.user);
+                userFound.save();
+                req.flash("success", "Successfully followed " + userFound.firstname + " " + userFound.lastname);
+                res.redirect("/users/" + userFound._id);
+            }
         }
     });
 });
@@ -150,15 +169,20 @@ router.post("/:id/unfollow", middleware.checkUserUserProfile, function(req, res)
             req.flash("error", "Something went wrong!");
             console.log(err);
         }else{
-            req.user.following = req.user.following - 1;
-            var indexToRemove = req.user.followingsUsers.indexOf(userFound);
-            req.user.likesUsers.splice(indexToRemove, 1);
-            req.user.save();
-            var indexToRemove2 = userFound.followers.indexOf(req.user);
-            userFound.followers.splice(indexToRemove2, 1);
-            userFound.save();
-            req.flash("success", "Successfully unfollowed " + userFound.firstname + " " + userFound.lastname);
-            res.redirect("/users/" + userFound._id);
+            function isThisIdUserFoundHere(element) {
+                return element.equals(userFound._id);                
+            }
+            if (typeof req.user.followingsUsers.find(isThisIdUserFoundHere) !== "undefined") {
+                req.user.following = req.user.following - 1;
+                var indexToRemove = req.user.followingsUsers.indexOf(userFound);
+                req.user.followingsUsers.splice(indexToRemove, 1);
+                req.user.save();
+                var indexToRemove2 = userFound.followers.indexOf(req.user);
+                userFound.followers.splice(indexToRemove2, 1);
+                userFound.save();
+                req.flash("success", "Successfully unfollowed " + userFound.firstname + " " + userFound.lastname);
+                res.redirect("/users/" + userFound._id);
+            }
         }
     });
 });

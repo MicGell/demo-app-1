@@ -4,6 +4,9 @@ var addNewCommentButton = document.querySelector("#addNewComment");
 var newCommentForm = document.querySelector(".newCommentForm");
 var heartLike = document.querySelector(".heartLike");
 
+var buttonLike = document.querySelectorAll(".buttonLike");
+var buttonFollow = document.querySelectorAll(".buttonFollow");
+
 init();
 
 function init () {
@@ -31,5 +34,15 @@ function heartLikeClick () {
 	})
 	heartLike.addEventListener("mouseleave", function () {
 		heartLike.classList.toggle('icon-heart');
+	})
+}
+
+function addDisablingButton() {
+	buttonLike.addEventListener("click", function () {
+		buttonLike.disabled = true;
+	})
+	buttonFollow.addEventListener("click", function () {
+		buttonFollow.disabled = true;
+		console.log('follow!!');
 	})
 }
