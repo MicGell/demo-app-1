@@ -177,16 +177,17 @@
 }
 
 .comment_userImg{
-	height: 100%;
+	height: 40px;
 	width: 40px;
 	display: inline-block;
 	float: left;
 }
 
-.comment_userImg img{
-    border-radius: 49%;
-    height: 40px;
-    width: 40px;
+.comment_userImg div{
+  border-radius: 49%;
+	height: 40px;
+	width: 40px;
+	margin: 0 auto;
 	background: no-repeat center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -223,10 +224,11 @@
 }
 
 .comment_text{
-    display: inline-block;
-    width: 333px;
-    margin: 0;
-    margin-left: 50px; 
+  display: inline-block;
+  width: 333px;
+  margin: 0;
+  margin-left: 50px; 
+  word-wrap: break-word;
 	font-size: 14px;
 	color: #444444;
 	letter-spacing: 0;
